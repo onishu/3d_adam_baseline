@@ -8,8 +8,19 @@ dependencies = [
   "torch==2.8.0",
   "torchvision==0.23.0",
   "pandas==2.2.3",
+  "numpy==1.26.4",
   "requests>=2.32",
   "ftfy", "regex", "tqdm",
+  # TransFusion / RGB+D extras (imgaug requires numpy<2)
+  "einops>=0.8",
+  "imgaug>=0.4",
+  "opencv-python>=4.8",
+  "scikit-learn>=1.4",
+  "scipy>=1.11",
+  "tifffile>=2024.1",
+  "positional-encodings>=6.0",
+  "scikit-image>=0.22",
+  "imageio>=2.34",
 ]
 
 [build-system]

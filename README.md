@@ -381,14 +381,75 @@ git rev-parse HEAD 2>$null |
 
 ---
 
-## 15. 今後の拡張
+## 15. 3D / RGB+3D 手法
 
-- TransFusion / RGB+3D fusion の再現 (著者の `3D-ADAMBench` リポジトリ)[web:152]
-- 別 GPU / 別 OS での再現性検証
-- 評価指標を増やした詳細解析 (per-category の分布、カテゴリごとの難易度分析など)
-- 3D 異常検知手法 (Reg3D-AD、M3DM 等) との比較実験[web:206]
+著者コードを `third_party/` に取り込み、anomalib 形式の `datasets/ADAM3D` から直接走らせる入口を追加しています。
+
+| 手法 | 入口 | 出力 | 備考 |
+|------|------|------|------|
+| TransFusion (論文 Table V) | `src/run_transfusion.py` | `results_transfusion` | RGB+D diffusion。DTD テクスチャ必須 |
+| RGB+Depth fusion (簡易) | `src/run_rgbd_fusion.py` | `results_rgbd_fusion` | RGB / Depth 各 PatchCore のスコア融合 |
+| M3DM | `src/run_m3dm.py` | `results_m3dm` | PointMAE 重みが必要 |
+| Reg3D-AD | `src/run_reg3dad.py` | `results_reg3dad` | 先に PCD 化。open3d / faiss 環境が必要 |
+
+### 15.1 TransFusion (推奨: 論文 RGB+3D 再現)
+
+```powershell
+uv sync
+
+# DTD が無い場合のみ
+uv run python -m src.run_transfusion --categories 1m1 --download-dtd `
+    --epoch-num 3 --eval-epoch-num 2
+
+# 本実験 (長い: カテゴリあたり epoch 1501)
+uv run python -m src.run_transfusion --mode rgbd --download-dtd
+
+uv run python -m src.compare --model transfusion --out results_transfusion
+```
+
+論文値 (Table V): Image AUROC 63.3 / Pixel AUROC 64.4 / AUPRO 31.0
+
+### 15.2 RGB+Depth PatchCore fusion
+
+```powershell
+uv run python -m src.run_rgbd_fusion --categories 1m1
+uv run python -m src.compare --model rgbd_fusion --out results_rgbd_fusion
+```
+
+### 15.3 M3DM
+
+```powershell
+# Point-MAE 重みを third_party/AnomalyDetection-M3DM/checkpoints/ に配置してから
+uv run python -m src.run_m3dm --categories 1m1 --method-name DINO+Point_MAE
+```
+
+ADAM3D は `ground_truth/` レイアウトのため、`third_party/AnomalyDetection-M3DM/dataset.py` を拡張済みです。
+
+### 15.4 Reg3D-AD
+
+```powershell
+uv run python -m src.export_adam3d_pcd --categories 1m1 --max-points 20000
+uv run python -m src.run_reg3dad --categories 1m1 --skip-export
+```
+
+PCD 出力は `datasets/ADAM3D_pcd/<category>/{train,test,gt}` です。
+
+### 15.5 依存の注意
+
+- TransFusion 追加依存は `pyproject.toml` に含め済み (`einops`, `imgaug`, `opencv-python`, `tifffile` 等)
+- M3DM / Reg3D-AD は PointMAE・open3d・faiss・pointnet2_ops など追加環境が必要な場合があります
+- 3DSR / GLFM は著者公開が限定的なため、本リポジトリでは未同梱です
 
 ---
 
-この README は、3D-ADAM 論文の anomalib ベースラインを  
-**Windows + RTX 3060** 環境で再現するための手順と、得られた結果を記録することを目的としています。
+## 16. 今後の拡張
+
+- 3DSR / GLFM の取り込み
+- TransFusion 全 23 カテゴリの本実験結果の README 追記
+- 別 GPU / 別 OS での再現性検証
+- per-category 分布の詳細解析
+
+---
+
+この README は、3D-ADAM 論文の anomalib ベースラインと  
+主要な 3D / RGB+3D 手法を **Windows + RTX 3060** 環境で再現するための手順を記録することを目的としています。

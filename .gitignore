@@ -1423,3 +1423,15 @@ results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/011_A.png
 results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/012_A.png
 results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/013_D.png
 results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/014_D.png
+logs/
+experiments/
+results_transfusion/
+results_rgbd_fusion/
+results_m3dm/
+results_reg3dad/
+results_author_cfa/
+third_party/**/__pycache__/
+third_party/**/*.pyc
+fg_masks/
+pretrained_models/
+pretrained_weights/
