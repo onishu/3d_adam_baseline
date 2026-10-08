@@ -32,7 +32,7 @@ def smoke_transfusion(category: str, root: str) -> None:
         img_width=320,
         img_height=256,
         dtd_path=dtd_path,
-        no_fg_masks=False,
+        no_fg_masks=True,
         fg_mask_path=fg_mask_path,
         seed=3,
         diffusion_num_steps=75,

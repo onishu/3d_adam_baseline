@@ -160,7 +160,15 @@ def main():
                 "error": f"{type(exc).__name__}: {exc}",
             }
             print("  ERROR:", record["error"], flush=True)
-        path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+
+        def _sanitize(obj):
+            if isinstance(obj, dict):
+                return {k: _sanitize(v) for k, v in obj.items()}
+            if isinstance(obj, float) and obj != obj:  # NaN
+                return None
+            return obj
+
+        path.write_text(json.dumps(_sanitize(record), indent=2), encoding="utf-8")
 
     print("Done:", raw_dir)
     print("Next: uv run python -m src.compare --model transfusion --out", args.out)

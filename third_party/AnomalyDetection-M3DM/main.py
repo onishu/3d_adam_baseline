@@ -1,7 +1,35 @@
 import argparse
+import json
+import os
+import time
 from m3dm_runner import M3DM
 from dataset import adam3d_classes, eyecandies_classes, mvtec3d_classes
 import pandas as pd
+
+
+def _metric_value(scores, method_name):
+    if method_name in scores:
+        return float(scores[method_name])
+    if len(scores) == 1:
+        return float(next(iter(scores.values())))
+    raise KeyError(method_name)
+
+
+def _append_metrics(args, category, image_rocaucs, pixel_rocaucs, au_pros, started):
+    path = os.environ.get("M3DM_METRICS_JSONL")
+    if not path:
+        return
+    record = {
+        "category": category,
+        "metrics": {
+            "image_AUROC": _metric_value(image_rocaucs, args.method_name),
+            "pixel_AUROC": _metric_value(pixel_rocaucs, args.method_name),
+            "AUPRO": _metric_value(au_pros, args.method_name),
+        },
+        "elapsed_sec": round(time.time() - started, 2),
+    }
+    with open(path, "a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record) + "\n")
 
 
 def run_3d_ads(args):
@@ -20,9 +48,11 @@ def run_3d_ads(args):
     pixel_rocaucs_df = pd.DataFrame(METHOD_NAMES, columns=['Method'])
     au_pros_df = pd.DataFrame(METHOD_NAMES, columns=['Method'])
     for cls in classes:
+        started = time.time()
         model = M3DM(args)
         model.fit(cls)
         image_rocaucs, pixel_rocaucs, au_pros = model.evaluate(cls)
+        _append_metrics(args, cls, image_rocaucs, pixel_rocaucs, au_pros, started)
         image_rocaucs_df[cls.title()] = image_rocaucs_df['Method'].map(image_rocaucs)
         pixel_rocaucs_df[cls.title()] = pixel_rocaucs_df['Method'].map(pixel_rocaucs)
         au_pros_df[cls.title()] = au_pros_df['Method'].map(au_pros)

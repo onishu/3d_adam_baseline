@@ -416,7 +416,7 @@ class SyntAnomalyGenerator:
             # Ensure e has the correct number of channels
             if self.d and self.rgb:
                 if e.shape[0] > 4:  # If we have extra channels
-                    e = e[:, :, :]  # Keep only RGB+depth
+                    e = e[:4, :, :]  # Keep only RGB+depth
                 elif e.shape[0] < 4:  # If we have fewer channels
                     if e.shape[0] == 3:  # If we only have RGB
                         e = torch.cat((e, torch.zeros_like(e[:1, :, :])), dim=0)  # Add zero depth channel

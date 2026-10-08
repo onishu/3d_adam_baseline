@@ -1,4 +1,5 @@
 import contextlib
+import json
 import logging
 import os
 import sys
@@ -25,6 +26,22 @@ from utils.visualization import save_anomalymap
 import argparse
 
 LOGGER = logging.getLogger(__name__)
+
+
+def _append_metrics(dataset_name, image_auroc, pixel_auroc, started):
+    path = os.environ.get("REG3DAD_METRICS_JSONL")
+    if not path:
+        return
+    record = {
+        "category": dataset_name,
+        "metrics": {
+            "image_AUROC": float(image_auroc),
+            "pixel_AUROC": float(pixel_auroc),
+        },
+        "elapsed_sec": round(time.time() - started, 2),
+    }
+    with open(path, "a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record) + "\n")
 
 
 @click.group(chain=True)
@@ -87,6 +104,7 @@ def run(
                        'seahorse','shell','starfish','toffees']
 
     for dataset_count, dataset_name in enumerate(real_3d_classes):
+        category_started = time.time()
         LOGGER.info(
             "Evaluating dataset [{}] ({}/{})...".format(
                 dataset_name,
@@ -190,6 +208,7 @@ def run(
             full_pixel_auroc = roc_auc_score(ap_mask,ap_seg)
             print('Task:{}, image_auc:{}, pixel_auc:{}, image_ap:{}, pixel_ap:{}, time_cost:{}'.format
                     (dataset_name,auroc,full_pixel_auroc,img_ap,pixel_ap,time_cost))
+            _append_metrics(dataset_name, auroc, full_pixel_auroc, category_started)
             # cur_pc_idx = 0
             # for pointcloud, mask, label, sample_path in test_loader:
             #     pc_length = pointcloud.shape[1]

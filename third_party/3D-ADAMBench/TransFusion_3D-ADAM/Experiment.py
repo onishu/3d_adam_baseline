@@ -42,9 +42,9 @@ def train(args):
 
     batch_size = args.bs
     print(f"trainset size {len(trainset)}")
-    num_workers = 0 if os.name == "nt" else min(8, args.bs * 2)
+    num_workers = 0 if os.name == "nt" else min(8, batch_size * 2)
     trainloader = torch.utils.data.DataLoader(
-        trainset, batch_size=4, shuffle=False, num_workers=num_workers
+        trainset, batch_size=batch_size, shuffle=False, num_workers=num_workers
     )
 
     epochs = args.epoch_num
@@ -52,14 +52,17 @@ def train(args):
 
     for epoch in range(start_epoch, epochs):
         running_loss = 0.0
+        seen = 0
         net.train()
         with tqdm(
             total=len(trainset),
             desc="Epoch: " + str(epoch) + "/" + str(epochs),
             unit="img",
         ) as prog_bar:
-            for i, data in enumerate(trainloader, 0):
+            for data in trainloader:
                 inputs = data["image"].cuda()
+                actual_bs = int(inputs.shape[0])
+                seen += actual_bs
                 #print(f"inputs: {inputs.shape}")
                 plane_mask = None
                 if "plane_mask" in data:
@@ -76,11 +79,11 @@ def train(args):
 
                 prog_bar.set_postfix(
                     **{
-                        "loss": running_loss / ((i + 1) * batch_size),
+                        "loss": running_loss / seen,
                         "lr": scheduler.get_last_lr()[0],
                     }
                 )
-                prog_bar.update(batch_size)
+                prog_bar.update(actual_bs)
 
         if epoch % evaluate_step == 0:
             torch.save(net.state_dict(), PATH + f"models/{args.category}_model.pkl")
@@ -308,7 +311,15 @@ def evaluate(PATH, testset, net, parameters, load_weights=False, category_name=N
                 trueScore.append(np.max(mask))
                 prog_bar.update(batch_size)
 
-    rocScoreImg = roc_auc_score(trueScore, predScore)
+    if len(set(int(x > 0.5) for x in trueScore)) < 2:
+        print(
+            "WARNING: image-level AUROC undefined "
+            f"(label set={sorted(set(int(x > 0.5) for x in trueScore))}). "
+            "Need both normal and anomalous samples in the test split."
+        )
+        rocScoreImg = float("nan")
+    else:
+        rocScoreImg = roc_auc_score(trueScore, predScore)
     rocScorePixel = roc_auc_score(true_masks.flatten(), all_masks.flatten())
     apScorePixel = average_precision_score(true_masks.flatten(), all_masks.flatten())
     pro = EvaluationUtils.compute_pro(all_masks, true_masks)

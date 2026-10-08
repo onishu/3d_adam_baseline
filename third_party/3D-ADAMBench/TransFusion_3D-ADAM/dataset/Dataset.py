@@ -35,7 +35,33 @@ def get_faulty_imgs(dataset, files):
     return a
 
 
-def get_files(dataset, category, test, path):
+def adam3d_normal_holdout(goods: list[str], ratio: float = 0.2, seed: int = 42):
+    """Mirror anomalib TestSplitMode.FROM_DIR when test/ has no normals.
+
+    Holds out ``ratio`` of train/good for image-level AUROC (both classes required).
+    """
+    import math
+
+    goods = list(goods)
+    if not goods:
+        return [], []
+    if isinstance(ratio, float):
+        split_ratio = [1 - ratio, ratio]
+    else:
+        split_ratio = list(ratio)
+    lengths = [math.floor(len(goods) * r) for r in split_ratio]
+    for i in range(len(goods) - sum(lengths)):
+        lengths[i % sum(lengths)] += 1
+    g = torch.Generator().manual_seed(seed)
+    order = torch.randperm(len(goods), generator=g).tolist()
+    train_idx = order[: lengths[0]]
+    hold_idx = order[lengths[0] : lengths[0] + lengths[1]]
+    train_files = [goods[i] for i in train_idx]
+    hold_files = [goods[i] for i in hold_idx]
+    return sorted(train_files), sorted(hold_files)
+
+
+def get_files(dataset, category, test, path, seed: int = 42, test_split_ratio: float = 0.2):
     print(f"Looking for dataset {dataset}, in path {path} with test: {test}")
     if dataset == "visa":
         if test:
@@ -58,11 +84,28 @@ def get_files(dataset, category, test, path):
     elif dataset == "adam3d":
         # anomalib / HuggingFace ADAM3D layout:
         #   <root>/<category>/{train,test}/<label>/{rgb,xyz,ground_truth}/<stem>.*
+        # test/ has defects only → hold out train/good normals like anomalib.
+        goods = sorted(glob.glob(f"{path}/{category}/train/good/rgb/*.png"))
+        train_files, normal_test = adam3d_normal_holdout(
+            goods, ratio=test_split_ratio, seed=seed
+        )
         if test:
-            p = sorted(glob.glob(f"{path}/{category}/test/*/rgb/*.png"))
-            is_faulty = get_faulty_imgs(dataset, np.array(p))
-            return list(p), is_faulty
-        return sorted(glob.glob(f"{path}/{category}/train/good/rgb/*.png"))
+            defects = sorted(glob.glob(f"{path}/{category}/test/*/rgb/*.png"))
+            # get_faulty_imgs: True = good/normal. We invert later via logical_not.
+            files = list(defects) + list(normal_test)
+            is_normal = np.array(
+                [False] * len(defects) + [True] * len(normal_test), dtype=bool
+            )
+            print(
+                f"adam3d test: defects={len(defects)} normals_holdout={len(normal_test)} "
+                f"(seed={seed}, ratio={test_split_ratio})"
+            )
+            return files, is_normal
+        print(
+            f"adam3d train: {len(train_files)} "
+            f"(held out {len(normal_test)} normals for test)"
+        )
+        return train_files
 
 
 def rgb_to_xyz_path(rgb_path: str) -> str:
@@ -129,11 +172,20 @@ class Dataset(torch.utils.data.Dataset):
 
         self.category = datasetParameters["category"]
         self.dataset_type = datasetParameters["dataset_type"]
+        seed = int(datasetParameters.get("seed", 42))
+        test_split_ratio = float(datasetParameters.get("test_split_ratio", 0.2))
 
         #postfix = "test/" if test else "train/"
         #path = f"{path}/{self.category}/{postfix}"
 
-        out = get_files(self.dataset_type, self.category, self.test, path)
+        out = get_files(
+            self.dataset_type,
+            self.category,
+            self.test,
+            path,
+            seed=seed,
+            test_split_ratio=test_split_ratio,
+        )
         if isinstance(out, tuple):
             self._files = out[0]
             self.is_faulty = np.logical_not(out[1])
@@ -142,7 +194,7 @@ class Dataset(torch.utils.data.Dataset):
             self.is_faulty = [False] * len(self._files)
         idx = np.argsort(self._files)
         self.is_faulty = list(np.array(self.is_faulty)[idx])
-        self._files.sort()
+        self._files = [self._files[i] for i in idx]
 
         self.global_max, self.global_min = 1, 0
         self.d = "d" in datasetParameters["mode"]

@@ -44,6 +44,41 @@ def parse_args():
     return p.parse_args()
 
 
+def write_category_results(raw_dir, model, categories, metrics_path, success):
+    found = {}
+    if metrics_path.is_file():
+        for line in metrics_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if "category" in record:
+                found[record["category"]] = record
+    for category in categories:
+        source = found.get(category)
+        path = raw_dir / f"{category}.json"
+        if source and source.get("metrics"):
+            record = {
+                "model": model,
+                "category": category,
+                "metrics": source["metrics"],
+            }
+            if "elapsed_sec" in source:
+                record["elapsed_sec"] = source["elapsed_sec"]
+        elif success:
+            record = {
+                "model": model,
+                "category": category,
+                "error": "metrics missing from benchmark output",
+            }
+        else:
+            continue
+        path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+
+
 def main():
     args = parse_args()
     if not M3DM_ROOT.is_dir():
@@ -107,18 +142,22 @@ def main():
     if args.fusion_module_path:
         cmd.extend(["--fusion_module_path", args.fusion_module_path])
 
+    metrics_path = raw_dir / "_metrics.jsonl"
+    metrics_path.write_text("", encoding="utf-8")
     env = os.environ.copy()
     env["PYTHONPATH"] = str(M3DM_ROOT) + os.pathsep + env.get("PYTHONPATH", "")
-    # Keep M3DM markdown outputs under our results tree.
+    env["PYTHONUNBUFFERED"] = "1"
+    env["M3DM_METRICS_JSONL"] = str(metrics_path.resolve())
     (out / "m3dm_logs").mkdir(parents=True, exist_ok=True)
     print(">", " ".join(cmd), flush=True)
-    print(
-        "NOTE: M3DM writes markdown summaries under third_party/AnomalyDetection-M3DM/results/. "
-        "Per-category JSON harvest is best-effort after the run.",
-        flush=True,
+    completed = subprocess.run(cmd, cwd=str(M3DM_ROOT), env=env)
+    write_category_results(
+        raw_dir, "m3dm", categories, metrics_path, completed.returncode == 0
     )
-    subprocess.run(cmd, cwd=str(M3DM_ROOT), env=env, check=True)
-    print("Done. Inspect M3DM logs and copy metrics into", raw_dir)
+    if completed.returncode != 0:
+        raise SystemExit(completed.returncode)
+    print("Done:", raw_dir)
+    print("Next: uv run python -m src.compare --model m3dm --out", args.out)
 
 
 if __name__ == "__main__":

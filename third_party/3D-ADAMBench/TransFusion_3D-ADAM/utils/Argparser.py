@@ -35,7 +35,19 @@ def get_argparser():
         "--mode", type=str, default="rgbd", choices=["rgb", "d", "rgbd"]
     )
     parser.add_argument("--fg-mask-path", type=str, default="./fg_masks")
-    parser.add_argument("--no-fg-masks", default=True, action="store_false")
+    parser.add_argument(
+        "--use-fg-masks",
+        dest="no_fg_masks",
+        action="store_false",
+        help="Load pretrained foreground masks from --fg-mask-path.",
+    )
+    parser.add_argument(
+        "--no-fg-masks",
+        dest="no_fg_masks",
+        action="store_true",
+        default=True,
+        help="Do not load pretrained foreground masks (default).",
+    )
     parser.add_argument("--dtd-path", type=str, default="./datasets/dtd/images/")
     parser.add_argument(
         "--category", type=str, default="all"

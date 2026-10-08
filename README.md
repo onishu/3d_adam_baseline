@@ -409,6 +409,10 @@ uv run python -m src.compare --model transfusion --out results_transfusion
 
 論文値 (Table V): Image AUROC 63.3 / Pixel AUROC 64.4 / AUPRO 31.0
 
+**注意 (Image AUROC):** ADAM3D の `test/` には欠陥サンプルのみがあります。  
+anomalib と同様に `train/good` の 20% を test の正常サンプルとして hold-out します  
+（未対応だと `image_AUROC=nan` になります）。
+
 ### 15.2 RGB+Depth PatchCore fusion
 
 ```powershell

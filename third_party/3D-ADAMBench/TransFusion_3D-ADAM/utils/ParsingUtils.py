@@ -64,7 +64,7 @@ def get_noise_generator_parameters(args):
         "dataset": args.dataset,
         "category": args.category,
         "mode": args.mode,
-        "use_pretrained_masks": args.no_fg_masks,
+        "use_pretrained_masks": not args.no_fg_masks,
         "fg_mask_path": args.fg_mask_path,
         "image_width": args.img_width,
         "image_height": args.img_height
@@ -118,6 +118,9 @@ def get_dataset(
         "category": args.category,
         "global_max": global_max,
         "global_min": global_min,
+        # Match anomalib ADAM3D defaults for normal holdout into test.
+        "seed": getattr(args, "seed", 42),
+        "test_split_ratio": getattr(args, "test_split_ratio", 0.2),
     }
 
     datasetInstance = Dataset(args.data_path, datasetParameters, not train)

@@ -29,6 +29,41 @@ def parse_args():
     return p.parse_args()
 
 
+def write_category_results(raw_dir, model, categories, metrics_path, success):
+    found = {}
+    if metrics_path.is_file():
+        for line in metrics_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if "category" in record:
+                found[record["category"]] = record
+    for category in categories:
+        source = found.get(category)
+        path = raw_dir / f"{category}.json"
+        if source and source.get("metrics"):
+            record = {
+                "model": model,
+                "category": category,
+                "metrics": source["metrics"],
+            }
+            if "elapsed_sec" in source:
+                record["elapsed_sec"] = source["elapsed_sec"]
+        elif success:
+            record = {
+                "model": model,
+                "category": category,
+                "error": "metrics missing from benchmark output",
+            }
+        else:
+            continue
+        path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+
+
 def main():
     args = parse_args()
     if not REG_ROOT.is_dir():
@@ -68,12 +103,16 @@ def main():
         encoding="utf-8",
     )
 
+    metrics_path = raw_dir / "_metrics.jsonl"
+    metrics_path.write_text("", encoding="utf-8")
     env = os.environ.copy()
     env["PYTHONPATH"] = str(REG_ROOT) + os.pathsep + env.get("PYTHONPATH", "")
+    env["PYTHONUNBUFFERED"] = "1"
     env["ADAM3D_MODE"] = "1"
     env["ADAM3D_PCD_ROOT"] = str(pcd_root.resolve())
     env["ADAM3D_CATEGORIES"] = ",".join(categories)
     env["REG3DAD_OUT"] = str((out / "benchmark").resolve()) + "/"
+    env["REG3DAD_METRICS_JSONL"] = str(metrics_path.resolve())
 
     cmd = [
         sys.executable,
@@ -95,8 +134,14 @@ def main():
         "approx_greedy_coreset",
     ]
     print(">", " ".join(cmd), flush=True)
-    subprocess.run(cmd, cwd=str(REG_ROOT), env=env, check=True)
-    print("Done. Reg3D-AD benchmark outputs under", out / "benchmark")
+    completed = subprocess.run(cmd, cwd=str(REG_ROOT), env=env)
+    write_category_results(
+        raw_dir, "reg3dad", categories, metrics_path, completed.returncode == 0
+    )
+    if completed.returncode != 0:
+        raise SystemExit(completed.returncode)
+    print("Done:", raw_dir)
+    print("Next: uv run python -m src.compare --model reg3dad --out", args.out)
 
 
 if __name__ == "__main__":
