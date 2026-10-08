@@ -1,0 +1,105 @@
+model: transfusion
+table: table5
+
+source:
+  primary:
+    repository: https://github.com/PaulMcHard/3D-ADAMBench
+    commit: 58c7e108a4b1de5789486fd2917245a1907234bf
+    license: MIT
+    local_path: third_party/3D-ADAMBench/TransFusion_3D-ADAM
+    retrieved_at: "2026-10-08"
+  original:
+    repository: https://github.com/maticfuc/ECCV_TransFusion
+    commit: a419dd93f26fa3c140fadf6d35fdf1a79074a515
+    license: MIT
+
+protocol: anomalib_subset
+manifest: configs/splits/anomalib_manifest.csv
+paper_protocol_equivalent: false
+protocol_difference: >
+  anomalib_subset uses train/good hold-out (seed=42, ratio=0.2) and
+  ValSplitMode.SAME_AS_TEST. Paper protocol (all goods in train; defective
+  part-instance 60:40) cannot be restored from this subset.
+
+mode: rgbd
+input:
+  width: 320
+  height: 256
+  # Upstream Dataset passes Resize((width, height)) into torchvision which
+  # interprets the pair as (h, w), yielding tensors shaped (C, 320, 256).
+  upstream_tensor_spatial_hw: [320, 256]
+  source: author_code
+
+training:
+  epochs: 1501
+  source_epochs: author_code
+  batch_size: 1
+  source_batch_size: author_code
+  num_workers: 0
+  source_num_workers: project_default  # Windows-safe; author Linux uses >0
+  optimizer: Adam
+  learning_rate: 1.0e-5
+  source_learning_rate: author_code
+  scheduler:
+    type: StepLR
+    step_size: 800
+    gamma: 0.1
+    source: author_code
+  seed: 3
+  source_seed: author_code
+  amp_enabled: false
+  source_amp_enabled: project_default  # upstream hardcodes autocast(True); we disable by default
+
+depth_preprocessing:
+  resize: cv2.INTER_NEAREST
+  channel: Z  # XYZ[..., 2]
+  invalid_value: 0
+  fill_depth_map: true
+  plane_mask: valid_point_plane_fit_with_depth_fallback
+  plane_threshold: 0.005
+  source_plane_mask: project_default  # replaces broken corner fit on ADAM3D
+  normalization: (z - global_max) / (global_max - global_min)
+  source: author_code
+
+rgb_preprocessing:
+  resize: torchvision.Resize  # see upstream (width,height)->(h,w) convention
+  normalize: (x/255 - 0.5) * 2
+  channel_order: RGB
+  source: author_code
+
+foreground_mask_root: fg_masks
+# Legacy name adam3d_valid_point_fit aliases to valid_point_plane_fit_with_depth_fallback.
+# Pilot A/B primary condition uses valid_depth_mask (equivalent after 100% fallback).
+foreground_strategy: valid_point_plane_fit_with_depth_fallback
+source_foreground_strategy: project_default
+empty_gt_pixel_policy: include_empty_anomalous_masks
+source_empty_gt_pixel_policy: project_default
+dtd_root: datasets/dtd/images
+
+checkpoint_selection:
+  metric: last
+  source: author_code  # Experiment.py overwrites model.pkl at each eval; no metric-best
+  available:
+    - validation_image_auroc
+    - validation_pixel_auroc
+    - validation_author_aupro
+    - validation_total_loss
+    - last
+
+evaluation:
+  kernel_size: 7
+  source_kernel_size: author_code
+  rgb_depth_weight: 0.95
+  source_rgb_depth_weight: author_code
+  image_score: anomaly_map.max
+  source_image_score: author_code
+  aupro_fpr_limit: 0.3
+  source_aupro_fpr_limit: assumed
+  eval_epoch_num: 750
+  source_eval_epoch_num: author_code
+  checkpoint_policy: save_last_eval_only
+  source_checkpoint_policy: author_code
+
+notes:
+  - "Do not treat inferred_manifest as paper protocol."
+  - "Empty GT masks in subset are dataset_quality_issues; see results/quality/empty_masks.csv."

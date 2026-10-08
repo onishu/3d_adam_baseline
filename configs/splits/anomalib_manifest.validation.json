@@ -1,0 +1,4475 @@
+{
+  "manifest": "configs/splits/anomalib_manifest.csv",
+  "manifest_sha256": "8af5571dd170147eb889788665a819ae447f92374a92ad105329b579eeb8a54c",
+  "protocol": "anomalib",
+  "n_rows_total": 4124,
+  "n_rows_active": 3740,
+  "n_unparsed_part_id": 2177,
+  "category_counts": {
+    "1m1": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 40,
+      "validation_good": 9,
+      "validation_abnormal": 40
+    },
+    "1m2": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 48,
+      "validation_good": 9,
+      "validation_abnormal": 48
+    },
+    "1m3": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 65,
+      "validation_good": 9,
+      "validation_abnormal": 65
+    },
+    "2m1": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 32,
+      "validation_good": 9,
+      "validation_abnormal": 32
+    },
+    "2m2h": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 33,
+      "validation_good": 9,
+      "validation_abnormal": 33
+    },
+    "2m2m": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 32,
+      "validation_good": 9,
+      "validation_abnormal": 32
+    },
+    "3m1": {
+      "test_good": 14,
+      "test_abnormal": 16,
+      "validation_good": 14,
+      "validation_abnormal": 16,
+      "train_good": 58
+    },
+    "3m2": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 32,
+      "validation_good": 9,
+      "validation_abnormal": 32
+    },
+    "3m2c": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 81,
+      "validation_good": 9,
+      "validation_abnormal": 81
+    },
+    "4m1": {
+      "test_good": 11,
+      "test_abnormal": 71,
+      "validation_good": 11,
+      "validation_abnormal": 71,
+      "train_good": 45
+    },
+    "4m2": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 80,
+      "validation_good": 9,
+      "validation_abnormal": 80
+    },
+    "4m2c": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 64,
+      "validation_good": 9,
+      "validation_abnormal": 64
+    },
+    "gripper_closed": {
+      "test_good": 14,
+      "test_abnormal": 16,
+      "validation_good": 14,
+      "validation_abnormal": 16,
+      "train_good": 58
+    },
+    "gripper_open": {
+      "test_good": 14,
+      "test_abnormal": 32,
+      "validation_good": 14,
+      "validation_abnormal": 32,
+      "train_good": 58
+    },
+    "helicalgear1": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 32,
+      "validation_good": 9,
+      "validation_abnormal": 32
+    },
+    "helicalgear2": {
+      "test_good": 9,
+      "test_abnormal": 64,
+      "validation_good": 9,
+      "validation_abnormal": 64,
+      "train_good": 40
+    },
+    "rackgear": {
+      "test_good": 9,
+      "test_abnormal": 64,
+      "validation_good": 9,
+      "validation_abnormal": 64,
+      "train_good": 40
+    },
+    "spiralgear": {
+      "test_good": 9,
+      "test_abnormal": 63,
+      "validation_good": 9,
+      "validation_abnormal": 63,
+      "train_good": 40
+    },
+    "spurgear": {
+      "test_good": 11,
+      "test_abnormal": 64,
+      "validation_good": 11,
+      "validation_abnormal": 64,
+      "train_good": 45
+    },
+    "tapa2m1": {
+      "train_good": 26,
+      "test_good": 6,
+      "test_abnormal": 64,
+      "validation_good": 6,
+      "validation_abnormal": 64
+    },
+    "tapa3m1": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 96,
+      "validation_good": 9,
+      "validation_abnormal": 96
+    },
+    "tapa4m1": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 48,
+      "validation_good": 9,
+      "validation_abnormal": 48
+    },
+    "tapatbb": {
+      "train_good": 39,
+      "test_good": 9,
+      "test_abnormal": 32,
+      "validation_good": 9,
+      "validation_abnormal": 32
+    }
+  },
+  "part_id_leakage": [
+    {
+      "category": "1m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "006",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "000",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "001",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "002",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "003",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "004",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "005",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "006",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "007",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "008",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "009",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "010",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "011",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "012",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "013",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "014",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m2",
+      "part_id": "015",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "1m3",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m3",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2h",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "2m2m",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "016",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "021",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "016",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m1",
+      "part_id": "021",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "3m2c",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "4m2c",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "016",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "021",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "016",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_closed",
+      "part_id": "021",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "016",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "021",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "016",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "gripper_open",
+      "part_id": "021",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "helicalgear2",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "rackgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spiralgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "spurgear",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa2m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "000",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "001",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "002",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "003",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "004",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "005",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "006",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "007",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "008",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "009",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "010",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "011",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "012",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "013",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "014",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "015",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "000",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "001",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "002",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "003",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "004",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "005",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "006",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "007",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "008",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "009",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "010",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "011",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "012",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "013",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "014",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "015",
+      "between": [
+        "validation",
+        "test"
+      ],
+      "scope": "abnormal_only"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "012",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "011",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "013",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapatbb",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    }
+  ],
+  "problems": [],
+  "warnings": [
+    "part_id_leakage_count:48",
+    "part_id_train_eval_overlap_count:426"
+  ],
+  "dataset_quality_issues": [
+    "empty_mask:4m1/test/under_extrusion/ground_truth/017.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/004.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/005.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/006.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/008.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/009.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/010.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/011.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/012.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/013.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/014.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/015.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/000.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/001.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/002.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/003.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/004.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/005.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/006.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/007.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/008.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/009.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/010.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/011.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/012.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/013.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/014.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/015.png"
+  ],
+  "ok": true
+}

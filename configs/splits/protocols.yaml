@@ -1,0 +1,86 @@
+# Split protocol registry for 3D-ADAM reproduction.
+
+protocols:
+  anomalib:
+    id: anomalib
+    class: official_anomalib_protocol
+    description: >
+      Effective split produced by anomalib 2.2.0 ADAM3D datamodule defaults
+      (TestSplitMode.FROM_DIR + test_split_ratio=0.2 + ValSplitMode.SAME_AS_TEST).
+    seed: 42
+    test_split_ratio: 0.2
+    val_split_mode: same_as_test
+    uses_on_disk_validation_dir: false
+    result_subdir: results/anomalib_protocol
+    status: implemented
+
+  paper:
+    id: paper
+    class: paper_protocol
+    description: >
+      Paper Section IV-A: anomaly-free training set contains all defect-free scans;
+      annotated defective scans partitioned into test:validation = 60:40 on a
+      part-instance level to prevent view-point leakage.
+    train_rule: all_defect_free_scans
+    defective_split: {test: 0.6, validation: 0.4}
+    split_unit: part_instance
+    result_subdir: results/paper_protocol
+    status: blocked_on_anomalib_subset
+    blocked_reason: >
+      Public anomalib subset renames many defective files to numeric stems without
+      recoverable part-instance IDs. Full HF dataset (pmchard/3D-ADAM) is
+      part-instance separated but is not vendored here (~669 GB).
+
+  anomalib_same_as_test:
+    id: anomalib_same_as_test
+    class: official_anomalib_protocol
+    description: >
+      Alias of anomalib_subset emphasizing ValSplitMode.SAME_AS_TEST
+      (validation identical to test). Not paper protocol.
+    result_subdir: results/anomalib_same_as_test
+    status: implemented
+    paper_protocol_equivalent: false
+
+  disk_validation:
+    id: disk_validation
+    class: project_protocol
+    description: >
+      Prefer on-disk validation/ tree when present for thresholding / model
+      selection. NOT asserted to match the paper part-instance 60:40 split.
+    uses_on_disk_validation_dir: true
+    result_subdir: results/disk_validation
+    status: experimental
+    paper_protocol_equivalent: false
+
+  inferred_part_split:
+    id: inferred_part_split
+    class: inferred_protocol
+    description: >
+      Alias of inferred. Best-effort part-instance reconstruction on the
+      anomalib subset. NOT paper protocol.
+    result_subdir: results/inferred_protocol
+    status: experimental
+    paper_protocol_equivalent: false
+
+  inferred:
+    id: inferred
+    class: inferred_protocol
+    description: >
+      Best-effort reconstruction on the anomalib subset. Parseable
+      {part_id}_{view_id} stems are used; unparseable defect stems are kept in
+      test with part_id=null. This is NOT claimed to equal the paper split.
+    result_subdir: results/inferred_protocol
+    status: experimental
+    paper_protocol_equivalent: false
+
+  author_cfa:
+    id: author_cfa
+    class: official_anomalib_protocol
+    description: Author-like CFA settings (batch 32) using anomalib protocol.
+    result_subdir: results/author_cfa
+    status: legacy_results_in_results_author_cfa
+
+legacy_result_roots:
+  - results/
+  - results_author_cfa/
+  - results_transfusion/

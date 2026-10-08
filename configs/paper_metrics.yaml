@@ -1,0 +1,73 @@
+# Paper metrics from arXiv:2507.07838 (3D-ADAM).
+# Values are stored as percentages (0-100) for consistent comparison with project summaries.
+# Source: paper HTML/PDF Table IV and Table V. Do not hard-code these elsewhere.
+
+paper:
+  arxiv: "2507.07838"
+  title: "3D-ADAM: A Dataset for 3D Anomaly Detection in Additive Manufacturing"
+
+table4:
+  description: "2D Anomaly Detection and Localisation models on 3D-ADAM"
+  metrics: [image_AUROC, image_F1Score, pixel_AUROC, pixel_F1Score]
+  models:
+    patchcore_2d:
+      image_AUROC: 96.2
+      image_F1Score: 95.9
+      pixel_AUROC: 86.5
+      pixel_F1Score: 6.9
+    uninet:
+      image_AUROC: 92.4
+      image_F1Score: 92.3
+      pixel_AUROC: 89.9
+      pixel_F1Score: 5.3
+    dinomaly:
+      image_AUROC: 83.4
+      image_F1Score: 90.3
+      pixel_AUROC: 95.9
+      pixel_F1Score: 20.0
+
+table5:
+  description: "3D and RGB+3D Anomaly Detection, Localisation and Segmentation on 3D-ADAM"
+  metrics: [image_AUROC, image_F1Score, pixel_AUROC, pixel_F1Score, AUPRO]
+  models:
+    cfa:
+      image_AUROC: 79.4
+      image_F1Score: 93.9
+      pixel_AUROC: 87.0
+      pixel_F1Score: 5.8
+      AUPRO: null
+    padim:
+      image_AUROC: 96.4
+      image_F1Score: 97.5
+      pixel_AUROC: 84.6
+      pixel_F1Score: 4.1
+      AUPRO: null
+    patchcore:
+      image_AUROC: 97.6
+      image_F1Score: 97.7
+      pixel_AUROC: 84.2
+      pixel_F1Score: 6.1
+      AUPRO: null
+    three_d_sr:
+      image_AUROC: 48.5
+      image_F1Score: null
+      pixel_AUROC: 49.4
+      pixel_F1Score: null
+      AUPRO: 18.4
+    transfusion:
+      image_AUROC: 63.3
+      image_F1Score: null
+      pixel_AUROC: 64.4
+      pixel_F1Score: null
+      AUPRO: 31.0
+    glfm:
+      image_AUROC: 79.1
+      image_F1Score: null
+      pixel_AUROC: 82.0
+      pixel_F1Score: null
+      AUPRO: 60.3
+
+notes:
+  - "Paper Table IV/V report ratios in [0,1]; this file stores percent points (x100)."
+  - "null means the paper marks the metric as unavailable (----)."
+  - "Table IV PatchCore (patchcore_2d) and Table V PatchCore are different evaluations; do not mix."

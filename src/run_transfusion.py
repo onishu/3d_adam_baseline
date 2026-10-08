@@ -1,4 +1,8 @@
-"""Train/evaluate author TransFusion (RGB+D) on anomalib ADAM3D layout."""
+"""Train/evaluate author TransFusion (RGB+D) on anomalib ADAM3D layout.
+
+Deprecated: prefer ``python -m src.benchmarks.table5.transfusion`` which uses the
+adapter (ADAM3D-safe plane mask, finite checks, anomalib_subset protocol metadata).
+"""
 from __future__ import annotations
 
 import argparse
@@ -8,6 +12,7 @@ import platform
 import subprocess
 import sys
 import time
+import warnings
 from pathlib import Path
 from urllib.request import urlretrieve
 
@@ -89,6 +94,18 @@ def read_category_metrics(csv_path: Path, category: str) -> dict[str, float] | N
 
 
 def main():
+    warnings.warn(
+        "src.run_transfusion is deprecated; use "
+        "`uv run python -m src.benchmarks.table5.transfusion --smoke` "
+        "(adapter with ADAM3D plane-mask fix). Continuing legacy entrypoint.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+    print(
+        "WARNING: legacy src.run_transfusion lacks the ADAM3D plane-mask fix; "
+        "prefer src.benchmarks.table5.transfusion",
+        flush=True,
+    )
     args = parse_args()
     if not TF_ROOT.is_dir():
         raise SystemExit(f"Missing TransFusion sources: {TF_ROOT}")

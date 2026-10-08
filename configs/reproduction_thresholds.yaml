@@ -1,0 +1,20 @@
+# Project-local reproduction status thresholds (NOT an official paper criterion).
+# Used only for report generation convenience.
+
+status_thresholds:
+  reproduced_abs_delta_points: 1.0
+  approximately_reproduced_abs_delta_points: 3.0
+  expected_categories: 23
+
+status_labels:
+  - reproduced
+  - approximately_reproduced
+  - not_reproduced
+  - incomplete
+  - not_comparable
+  - blocked
+
+aggregation:
+  paper_comparison: macro
+  allow_micro: true
+  never_mix_macro_micro_in_same_column: true

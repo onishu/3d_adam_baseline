@@ -1,0 +1,66 @@
+model: 3dsr
+table: table5
+
+source:
+  repository: https://github.com/VitjanZ/3DSR
+  commit: 6f83317837c6615f893f3107235c75edda90181a
+  license: Apache-2.0
+  local_path: third_party/3DSR
+  retrieved_at: "2026-10-08"
+
+protocol: anomalib_subset
+manifest: configs/splits/anomalib_manifest.csv
+paper_protocol_equivalent: false
+
+# Table V modality unconfirmed (Q-MDL-05). Default here is depth-only (train_dsr_depth.py).
+modality: depth  # depth | rgbd
+source_modality: unconfirmed_table_v
+
+input:
+  width: 384
+  height: 384
+  source: author_code
+
+training:
+  epochs: 120
+  source_epochs: author_readme
+  batch_size: 16
+  source_batch_size: author_readme
+  learning_rate: 0.0002
+  source_learning_rate: author_readme
+  scheduler:
+    type: MultiStepLR
+    milestones_fraction: 0.80
+    gamma: 0.1
+    source: author_code
+  train_resample_length: 4000
+  source_train_resample_length: author_code
+
+pretrained_vq:
+  depth: checkpoints/DADA_D.pckl
+  rgbd: checkpoints/DADA_RGB_D.pckl
+  source: author_repo
+
+depth_preprocessing:
+  xyz_channel: Z  # index 2
+  resize: cv2.INTER_NEAREST
+  invalid_value: 0
+  plane_mask: author_get_plane_mask  # will need ADAM3D patch (X=Y=Z subset)
+  fill_depth_map: true
+  normalize: per_image_minmax_to_0.1_0.9
+  source: author_code
+
+rgb_preprocessing:
+  resize: cv2
+  scale: /255
+  channel_order: RGB
+  train_rotate_deg: [-15, 15]
+  source: author_code
+
+evaluation:
+  image_score: max(avg_pool(anomaly_prob, 11))
+  source_image_score: author_code
+
+notes:
+  - "Do not run GPU smoke until TransFusion Pilot B finishes and user approves."
+  - "anomalib XYZ is not true organized point cloud (X=Y=Z)."

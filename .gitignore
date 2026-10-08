@@ -1424,6 +1424,7 @@ results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/012_A.png
 results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/013_D.png
 results_author_cfa/work/cfa/tapatbb/images/train/good/rgb/014_D.png
 logs/
+logs.txt
 experiments/
 results_transfusion/
 results_rgbd_fusion/

@@ -1,0 +1,597 @@
+{
+  "manifest": "configs/splits/inferred_manifest.csv",
+  "manifest_sha256": "cb01701285b812de050a20345c1b3f0035d731e20bc2a2c092145cc434dd85c6",
+  "protocol": "inferred",
+  "n_rows_total": 2732,
+  "n_rows_active": 2732,
+  "n_unparsed_part_id": 1102,
+  "category_counts": {
+    "1m1": {
+      "train_good": 64,
+      "test_abnormal": 40
+    },
+    "1m2": {
+      "train_good": 64,
+      "test_abnormal": 36,
+      "validation_abnormal": 12
+    },
+    "1m3": {
+      "train_good": 64,
+      "test_abnormal": 65
+    },
+    "2m1": {
+      "train_good": 64,
+      "test_abnormal": 32
+    },
+    "2m2h": {
+      "train_good": 64,
+      "test_abnormal": 33
+    },
+    "2m2m": {
+      "train_good": 64,
+      "test_abnormal": 32
+    },
+    "3m1": {
+      "train_good": 96,
+      "test_abnormal": 16
+    },
+    "3m2": {
+      "train_good": 64,
+      "test_abnormal": 32
+    },
+    "3m2c": {
+      "train_good": 64,
+      "test_abnormal": 81
+    },
+    "4m1": {
+      "train_good": 72,
+      "test_abnormal": 71
+    },
+    "4m2": {
+      "train_good": 64,
+      "test_abnormal": 80
+    },
+    "4m2c": {
+      "train_good": 64,
+      "test_abnormal": 64
+    },
+    "gripper_closed": {
+      "train_good": 88,
+      "test_abnormal": 16
+    },
+    "gripper_open": {
+      "train_good": 96,
+      "test_abnormal": 32
+    },
+    "helicalgear1": {
+      "train_good": 64,
+      "test_abnormal": 32
+    },
+    "helicalgear2": {
+      "train_good": 65,
+      "test_abnormal": 64
+    },
+    "rackgear": {
+      "train_good": 65,
+      "test_abnormal": 64
+    },
+    "spiralgear": {
+      "train_good": 65,
+      "test_abnormal": 63
+    },
+    "spurgear": {
+      "train_good": 72,
+      "test_abnormal": 64
+    },
+    "tapa2m1": {
+      "train_good": 48,
+      "test_abnormal": 64
+    },
+    "tapa3m1": {
+      "train_good": 64,
+      "validation_abnormal": 12,
+      "test_abnormal": 84
+    },
+    "tapa4m1": {
+      "train_good": 64,
+      "test_abnormal": 36,
+      "validation_abnormal": 12
+    },
+    "tapatbb": {
+      "train_good": 64,
+      "test_abnormal": 32
+    }
+  },
+  "part_id_leakage": [
+    {
+      "category": "1m2",
+      "part_id": "001",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "004",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "005",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "008",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "007",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "1m2",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa3m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "003",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "006",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "007",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "011",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "013",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "014",
+      "between": [
+        "train",
+        "validation"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "000",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "001",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "002",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "004",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "005",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "008",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "009",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "010",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "012",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    },
+    {
+      "category": "tapa4m1",
+      "part_id": "015",
+      "between": [
+        "train",
+        "test"
+      ],
+      "scope": "all_labels"
+    }
+  ],
+  "problems": [],
+  "warnings": [
+    "test_missing_normal:1m1",
+    "test_missing_normal:1m2",
+    "test_missing_normal:1m3",
+    "test_missing_normal:2m1",
+    "test_missing_normal:2m2h",
+    "test_missing_normal:2m2m",
+    "test_missing_normal:3m1",
+    "test_missing_normal:3m2",
+    "test_missing_normal:3m2c",
+    "test_missing_normal:4m1",
+    "test_missing_normal:4m2",
+    "test_missing_normal:4m2c",
+    "test_missing_normal:gripper_closed",
+    "test_missing_normal:gripper_open",
+    "test_missing_normal:helicalgear1",
+    "test_missing_normal:helicalgear2",
+    "test_missing_normal:rackgear",
+    "test_missing_normal:spiralgear",
+    "test_missing_normal:spurgear",
+    "test_missing_normal:tapa2m1",
+    "test_missing_normal:tapa3m1",
+    "test_missing_normal:tapa4m1",
+    "test_missing_normal:tapatbb",
+    "part_id_train_eval_overlap_count:48"
+  ],
+  "dataset_quality_issues": [
+    "empty_mask:4m1/test/under_extrusion/ground_truth/017.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/004.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/005.png",
+    "empty_mask:gripper_open/test/cut/ground_truth/006.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/008.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/009.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/010.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/011.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/012.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/013.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/014.png",
+    "empty_mask:rackgear/test/under_extrusion/ground_truth/015.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/000.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/001.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/002.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/003.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/004.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/005.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/006.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/007.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/008.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/009.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/010.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/011.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/012.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/013.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/014.png",
+    "empty_mask:spiralgear/test/under_extrusion/ground_truth/015.png"
+  ],
+  "ok": true
+}
